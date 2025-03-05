@@ -1,0 +1,490 @@
+/* **************************************
+    BASE
+************************************* */
+
+:root {
+    --black: #000;
+    --white: #fff;
+    --greyLight: #e1e3e5;
+    --greyMedium: #8a959e;
+    --greyDark: #323a45;
+    --darkBlue: #325684;
+    --blue: #63A5F5;
+    --defaultTransition: all 500ms ease-in-out;
+}
+
+html * {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+	box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+/* set rem text size and styling */
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 18px;
+	font-size: 1.8rem;
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 100vh;
+}
+
+h2 {
+    font-size: 16rem;
+    font-family: "Roboto", serif;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+footer {
+    display: flex;
+    background-color: var(--blue);
+    height: 15vh;
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", serif;
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: var(--white);
+}
+
+h1 {
+    display: none;
+}
+
+section h2 {
+    color: var(--blue);
+    margin-left: 33px;
+}
+
+/* **************************************
+  MODULES
+************************************* */
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+} 
+
+.top {
+    background-color: var(--white);
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.top h2 {
+    position: relative;
+    bottom: -40px;
+    color: var(--blue);
+    margin-left: -2.5px;
+}
+
+.bottom {
+    background-color: var(--blue);
+    flex: 1;
+    margin-bottom: 30px;
+    transition: margin-bottom 0.5s ease;
+}
+
+.bottom h2 {
+    position: relative;
+    top: -34.75px;
+    color: var(--white);
+    margin-left: -2.5px;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-end;
+    flex: 1;
+    width: 100%;
+}
+
+.bottom img {
+    position: relative;
+    top: 40px;
+    /* maybe 60px, around that */
+    transition: transform .5s;
+}
+
+.bottom img:hover {
+    transform: scale(1.1);
+}
+
+#buttonUp {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: var(--white);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 200px;
+    opacity: 0;
+    transition: all 0.6s;
+    z-index: 100;
+}
+
+#buttonUp:hover {
+    background-color: var(--blue);
+}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+
+.bio {
+    margin: 150px 100px 100px 100px;
+}
+
+.flex-wrapper-bio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+#profile-img {
+    max-width: 40%;
+    height: auto;
+    position: relative;
+    bottom: 40px;
+    padding: 0px 0px 50px 20px;
+    flex: 40%;
+}
+
+
+.flex-wrapper-bio div {
+    flex: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 20px 40px;
+    font-family: "Roboto", serif;
+    font-size: 2.4rem;
+}
+
+#synopsis {
+    margin-right: 60px;
+    font-weight: 200;
+}
+
+#synopsis p {
+    padding-bottom: 30px;
+}
+
+#flex-icons {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right: 60px;
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+.cards {
+    font-family: "Roboto", serif;
+	font-weight: 300;
+	background: var(--white);
+	color: var(--greyDark);
+	/*height: 100%;*/
+    padding: 20px;
+    max-width: 100vw;
+}
+
+@media (min-width: 900px) {
+    .cards {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+}
+
+.cards__item {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: var(--black);
+    height: 75%;
+    text-align: left;
+    text-decoration: none;
+    border-top: 15px solid var(--darkBlue);
+    padding: 40px 50px;
+    margin: 20px;
+    transition: var(--defaultTransition);
+    width: auto;
+    background-image: url('../img/pens_stuff2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.85); 
+    background-blend-mode: overlay;
+    /* border-radius: 20px; */
+    /* border-radius: 0px 0px 20px 20px; */
+}
+
+@media (min-width: 900px) {
+    .cards__item {
+        width: calc(100% / 3);
+    }
+}
+
+.cards__item:hover,
+.cards__item:focus {
+    background: var(--darkBlue);
+    border-color: var(--darkBlue);
+    color: var(--white);
+    outline: 0;
+}
+
+.cards__item:hover .cards__date,
+.cards__item:focus .cards__date {
+    color: rgba(var(--white), 0.6);
+}
+
+.cards__item:hover .cards__title,
+.cards__item:focus .cards__title {
+    color: var(--white);
+}
+
+.cards__item:hover .cards__more,
+.cards__item:focus .cards__more {
+    color: var(--white);
+    border-bottom: solid 1px rgba(var(--white), 0.6);
+}
+
+.cards__item:nth-of-type(2) {
+    border-top: 15px solid var(--greyMedium);
+    background-image: url('../assets/img/icecream3.jpg');
+}
+
+.cards__item:nth-of-type(2):hover,
+.cards__item:nth-of-type(2):focus {
+    background: var(--greyMedium);
+    border-color: var(--greyMedium);
+}
+
+.cards__item:nth-of-type(3) {
+    border-top: 15px solid var(--greyDark);
+    background-image: url('../assets/img/compass_hand.jpg');
+}
+
+.cards__item:nth-of-type(3):hover,
+.cards__item:nth-of-type(3):focus {
+    background: var(--greyDark);
+    border-color: var(--greyDark);
+}
+
+.cards__date {
+    display: block;
+    color: var(--greyDark);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    font-weight: 700;
+    transition: var(--defaultTransition);
+}
+
+.cards__title {
+    color: var(--black);
+    font-weight: 300;
+    margin: 0 0 30px 0;
+    transition: var(--defaultTransition);
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+@media (min-width: 1200px) {
+    .cards__title {
+        font-size: 2.4rem;
+        line-height: 3.5rem;
+    }
+}
+
+.cards__more {
+    margin-top: auto;
+    color: var(--greyDark);
+    display: inline-block;
+    border-bottom: 1px solid var(--greyMedium);
+    font-size: 1.8rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+    transition: var(--defaultTransition);
+}
+
+/* .case {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 400px;
+    width: 350px;
+    margin-top: 30px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 550ms;
+    font-family: "Roboto", serif;
+}
+
+.cases {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 150px;
+    flex-wrap: wrap;
+}
+
+.cases .c1 {
+    background-color: #f43f5e;
+}
+  
+.cases .c2 {
+    background-color: #3b82f6;
+}
+
+.cases .c3 {
+    background-color: green;
+}
+
+/* From Uiverse.io by kamehame-ha */ 
+/* .cases .case:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.cases:hover > .case:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+}
+
+.case:active {
+    background-color: white;
+}  */
+
+/* **************************************
+ LAYOUT
+************************************* */
+
+.bio { grid-area: bio; }
+.cases { grid-area: cases; }
+.footers { grid-area: footers; }
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    "bio"
+    "cases" 
+    "footers"
+}
+
+
+/* **************************************
+ RELAYOUT
+************************************* */
+
+@media screen and (max-width: 1250px) {
+
+    .flex-wrapper-bio {
+        flex-direction: column;
+    }
+
+    #synopsis{
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .flex-wrapper-bio div {
+        text-align: center;
+        font-size: 1.75rem;
+        padding: 0px 20px 20px 20px;
+    }
+
+    #profile-img {
+        width: 60%;
+        height: auto;
+        padding: 0px 0px 50px 0px;
+    }
+
+    #synopsis {
+        margin-right: auto;
+    }
+
+    #flex-icons {
+        margin-right: 0px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+    .top h2 {
+        bottom: -21px;
+        font-size: 8rem;
+    }
+
+    .bottom a {
+        text-align: center;
+    }
+
+    .bottom h2 {
+        top: -18px;
+        font-size: 8rem;
+    }
+
+    .bottom img {
+        width: 70%;
+        height: auto;
+        position: relative;
+        top: 140px;
+        /* 190 */
+        /*why does this look different depending if im in windowed vs inpection mode  */
+    }
+
+    #profile-img {
+        width: 40%;
+        /* whats preventing the img from getting bigger than 40% */
+        height: auto;
+    }
+
+    section h2 {
+        font-size: 8rem;
+        text-align: center;
+    }
+
+    .cards__item {
+        height: 30%;
+    }
+}
+
