@@ -5,11 +5,13 @@
 :root {
     --black: #000;
     --white: #fff;
+    --greyLighter: #efefef; 
     --greyLight: #e1e3e5;
     --greyMedium: #8a959e;
     --greyDark: #323a45;
     --darkBlue: #325684;
     --blue: #63A5F5;
+    --lightBlue: #d6e9ff;
     --defaultTransition: all 500ms ease-in-out;
 }
 
@@ -20,6 +22,7 @@ html * {
 
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
+    font-family: "Roboto", serif;
 	box-sizing: border-box;
     scroll-behavior: smooth;
     margin: 0;
@@ -52,13 +55,15 @@ header {
     height: 100vh;
 }
 
-h2 {
+.homepage h2 {
     font-size: 16rem;
-    font-family: "Roboto", serif;
     font-weight: 900;
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
+    color: var(--blue);
+    margin-left: 33px;
+    margin-top: 50px;
 }
 
 footer {
@@ -68,24 +73,24 @@ footer {
     margin-top: 80px;
     justify-content: center;
     align-items: center;
-    font-family: "Roboto", serif;
+    text-align: center;
     font-weight: 800;
     font-size: 1.9rem;
     color: var(--white);
+    padding: 20px;
 }
 
-h1 {
+.homepage h1 {
     display: none;
 }
 
-section h2 {
-    color: var(--blue);
-    margin-left: 33px;
+p {
+    line-height: 2;
 }
 
-/* **************************************
-  MODULES
-************************************* */
+/* ******************************************************************************************************************
+  HEADER/INITIAL PAGE
+***************************************************************************************************************** */
 
 
 .container {
@@ -111,13 +116,13 @@ section h2 {
 .bottom {
     background-color: var(--blue);
     flex: 1;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     transition: margin-bottom 0.5s ease;
 }
 
 .bottom h2 {
     position: relative;
-    top: -34.75px;
+    top: -85.5px;
     color: var(--white);
     margin-left: -2.5px;
 }
@@ -141,10 +146,39 @@ section h2 {
     transform: scale(1.1);
 }
 
+@media (max-width: 900px) {
+    .top h2 {
+        bottom: -21px;
+        font-size: 8rem;
+    }
+
+    .bottom a {
+        text-align: center;
+    }
+
+    .bottom h2 {
+        top: -68px;
+        font-size: 8rem;
+    }
+
+    .bottom img {
+        width: 70%;
+        height: auto;
+        position: relative;
+        top: 140px;
+        /* 190 */
+        /*why does this look different depending if im in windowed vs inpection mode  */
+    }
+}
+
+/* to-top button */
 #buttonUp {
     position: fixed;
     bottom: 20px;
     right: 30px;
+    transition: all 0.6s;
+    z-index: 100;
+    opacity: 0;
     border: none;
     outline: none;
     background-color: black;
@@ -152,24 +186,113 @@ section h2 {
     cursor: pointer;
     padding: 10px;
     border-radius: 200px;
-    opacity: 0;
-    transition: all 0.6s;
-    z-index: 100;
 }
 
 #buttonUp:hover {
     background-color: var(--blue);
 }
 
-/* ----------------------------------------------------------------------------------------------------------- */
+/* circle following cursor */
+.cursor-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: var(--white);
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
 
+/* ----------------------------------------------------------- */
+/* NAVBAR STUFF */
+nav {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+/* Hidden state */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+nav a,
+nav ul {
+    margin: 20px 40px;
+}
+
+nav a {
+    transition: all 300ms ease-in-out;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+nav > a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 800;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul a {
+    padding: 0;
+    margin: 0 20px;
+    text-decoration: none;
+    color: var(--black);
+}
+
+nav ul li:nth-of-type(2) a{
+    margin-right: 0;
+}
+
+@media (max-width: 750px) {
+    nav ul li {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul a {
+        margin: 0 10px;
+    }
+
+    nav a,
+    nav ul {
+        margin: 20px 10px;
+    }
+}
+
+/* ----------------------------------------------------------- */
+/* PROFILE STUFF (HOMEPAGE)*/
 .bio {
     margin: 150px 100px 100px 100px;
+}
+
+@media (max-width: 650px) {
+    .bio {
+        margin: 150px 25px 100px 25px;
+    }
 }
 
 .flex-wrapper-bio {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 60px;
 }
 
@@ -188,13 +311,13 @@ section h2 {
     display: flex;
     flex-direction: column;
     padding: 0px 20px 20px 40px;
-    font-family: "Roboto", serif;
     font-size: 2.4rem;
 }
 
 #synopsis {
     margin-right: 60px;
     font-weight: 200;
+    font-size: 2rem;
 }
 
 #synopsis p {
@@ -208,214 +331,20 @@ section h2 {
     margin-right: 60px;
 }
 
-/* ------------------------------------------------------------------------------------------------------ */
-
-.cards {
-    font-family: "Roboto", serif;
-	font-weight: 300;
-	background: var(--white);
-	color: var(--greyDark);
-	/*height: 100%;*/
-    padding: 20px;
-    max-width: 100vw;
+#email svg,
+#linkedin svg,
+#insta svg {
+  transition: var(--defaultTransition);
 }
 
-@media (min-width: 900px) {
-    .cards {
-        display: flex;
-        align-items: stretch;
-        justify-content: space-between;
-    }
+#email:hover svg,
+#linkedin:hover svg,
+#insta:hover svg {
+  fill: var(--black);       
+  transform: scale(1.1); 
 }
 
-.cards__item {
-    flex: 0 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: var(--black);
-    height: 75%;
-    text-align: left;
-    text-decoration: none;
-    border-top: 15px solid var(--darkBlue);
-    padding: 40px 50px;
-    margin: 20px;
-    transition: var(--defaultTransition);
-    width: auto;
-    background-image: url('../img/pens_stuff2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(255, 255, 255, 0.85); 
-    background-blend-mode: overlay;
-    /* border-radius: 20px; */
-    /* border-radius: 0px 0px 20px 20px; */
-}
-
-@media (min-width: 900px) {
-    .cards__item {
-        width: calc(100% / 3);
-    }
-}
-
-.cards__item:hover,
-.cards__item:focus {
-    background: var(--darkBlue);
-    border-color: var(--darkBlue);
-    color: var(--white);
-    outline: 0;
-}
-
-.cards__item:hover .cards__date,
-.cards__item:focus .cards__date {
-    color: rgba(var(--white), 0.6);
-}
-
-.cards__item:hover .cards__title,
-.cards__item:focus .cards__title {
-    color: var(--white);
-}
-
-.cards__item:hover .cards__more,
-.cards__item:focus .cards__more {
-    color: var(--white);
-    border-bottom: solid 1px rgba(var(--white), 0.6);
-}
-
-.cards__item:nth-of-type(2) {
-    border-top: 15px solid var(--greyMedium);
-    background-image: url('../assets/img/icecream3.jpg');
-}
-
-.cards__item:nth-of-type(2):hover,
-.cards__item:nth-of-type(2):focus {
-    background: var(--greyMedium);
-    border-color: var(--greyMedium);
-}
-
-.cards__item:nth-of-type(3) {
-    border-top: 15px solid var(--greyDark);
-    background-image: url('../assets/img/compass_hand.jpg');
-}
-
-.cards__item:nth-of-type(3):hover,
-.cards__item:nth-of-type(3):focus {
-    background: var(--greyDark);
-    border-color: var(--greyDark);
-}
-
-.cards__date {
-    display: block;
-    color: var(--greyDark);
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    line-height: 2.4rem;
-    font-weight: 700;
-    transition: var(--defaultTransition);
-}
-
-.cards__title {
-    color: var(--black);
-    font-weight: 300;
-    margin: 0 0 30px 0;
-    transition: var(--defaultTransition);
-    font-size: 2rem;
-    line-height: 3rem;
-}
-
-@media (min-width: 1200px) {
-    .cards__title {
-        font-size: 2.4rem;
-        line-height: 3.5rem;
-    }
-}
-
-.cards__more {
-    margin-top: auto;
-    color: var(--greyDark);
-    display: inline-block;
-    border-bottom: 1px solid var(--greyMedium);
-    font-size: 1.8rem;
-    line-height: 1.6rem;
-    font-weight: 400;
-    transition: var(--defaultTransition);
-}
-
-/* .case {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    height: 400px;
-    width: 350px;
-    margin-top: 30px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: 550ms;
-    font-family: "Roboto", serif;
-}
-
-.cases {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-bottom: 150px;
-    flex-wrap: wrap;
-}
-
-.cases .c1 {
-    background-color: #f43f5e;
-}
-  
-.cases .c2 {
-    background-color: #3b82f6;
-}
-
-.cases .c3 {
-    background-color: green;
-}
-
-/* From Uiverse.io by kamehame-ha */ 
-/* .cases .case:hover {
-    transform: scale(1.1, 1.1);
-}
-
-.cases:hover > .case:not(:hover) {
-    filter: blur(10px);
-    transform: scale(0.9, 0.9);
-}
-
-.case:active {
-    background-color: white;
-}  */
-
-/* **************************************
- LAYOUT
-************************************* */
-
-.bio { grid-area: bio; }
-.cases { grid-area: cases; }
-.footers { grid-area: footers; }
-
-
-.grid-container {
-    display: grid;
-    grid-template-areas:
-    "bio"
-    "cases" 
-    "footers"
-}
-
-
-/* **************************************
- RELAYOUT
-************************************* */
-
-@media screen and (max-width: 1250px) {
-
+@media (max-width: 1250px) {
     .flex-wrapper-bio {
         flex-direction: column;
     }
@@ -444,47 +373,439 @@ section h2 {
     #flex-icons {
         margin-right: 0px;
     }
-
 }
 
-@media screen and (max-width: 900px) {
-
-    .top h2 {
-        bottom: -21px;
-        font-size: 8rem;
-    }
-
-    .bottom a {
-        text-align: center;
-    }
-
-    .bottom h2 {
-        top: -18px;
-        font-size: 8rem;
-    }
-
-    .bottom img {
-        width: 70%;
-        height: auto;
-        position: relative;
-        top: 140px;
-        /* 190 */
-        /*why does this look different depending if im in windowed vs inpection mode  */
-    }
-
+@media (max-width: 900px) {
     #profile-img {
         width: 40%;
         /* whats preventing the img from getting bigger than 40% */
         height: auto;
     }
 
-    section h2 {
-        font-size: 8rem;
-        text-align: center;
+    #synopsis {
+        padding-right: 0;
+        padding-left: 0;
     }
 
-    .cards__item {
-        height: 30%;
+    .flex-wrapper-bio div {
+        padding: 0;
     }
 }
 
+/* ----------------------------------------------------------- */
+/* CARD STUFF (HOMEPAGE)*/
+.cards {
+	font-weight: 300;
+	background: var(--white);
+	color: var(--greyDark);
+	/*height: 100%;*/
+    padding: 20px;
+    max-width: 100%;
+}
+
+@media (min-width: 900px) {
+    .cards {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+}
+
+/* default is first card styling */
+.cards-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: var(--black);
+    min-height: 100%;
+    text-align: left;
+    text-decoration: none;
+    border-top: 15px solid var(--darkBlue);
+    padding: 30px;
+    margin: 20px;
+    transition: var(--defaultTransition);
+    width: auto;
+    /* background-image: url('../img/pens_stuff2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+
+@media (min-width: 900px) {
+    .cards-item {
+        width: calc(100% / 3);
+    }
+}
+
+@media (max-width: 900px) {
+    .cards-item {
+        height: 30%;
+    }
+
+    .homepage h2 {
+        font-size: 8rem;
+    }
+}
+
+.cards-item img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* 1st CARD HOVER COLORS */
+.cards-item:hover,
+.cards-item:focus {
+    background: var(--darkBlue);
+    border-color: var(--darkBlue);
+    color: var(--white);
+    outline: 0;
+}
+
+.cards-item:hover .cards-date,
+.cards-item:focus .cards-date {
+    color: var(--white);
+}
+
+.cards-item:hover .cards-title,
+.cards-item:focus .cards-title {
+    color: var(--white);
+}
+
+.cards-item:hover .cards-more,
+.cards-item:focus .cards-more {
+    color: var(--white);
+    border-bottom: none;
+}
+
+/* 2nd CARD COLORS + HOVER*/
+.cards-item:nth-of-type(2) {
+    border-top: 15px solid var(--greyMedium);
+}
+
+.cards-item:nth-of-type(2):hover,
+.cards-item:nth-of-type(2):focus {
+    background: var(--greyMedium);
+    border-color: var(--greyMedium);
+}
+
+/* 3rd CARD COLORS + HOVER*/
+.cards-item:nth-of-type(3) {
+    border-top: 15px solid var(--greyDark);
+}
+
+.cards-item:nth-of-type(3):hover,
+.cards-item:nth-of-type(3):focus {
+    background: var(--greyDark);
+    border-color: var(--greyDark);
+}
+
+.cards-date {
+    display: block;
+    color: var(--greyDark);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    font-weight: 700;
+    transition: var(--defaultTransition);
+}
+
+.cards-title {
+    color: var(--black);
+    font-weight: 300;
+    margin: 0 0 30px 0;
+    transition: var(--defaultTransition);
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+@media (min-width: 1200px) {
+    .cards-title {
+        font-size: 2.4rem;
+        line-height: 3.5rem;
+    }
+}
+
+.cards-more {
+    margin-top: auto;
+    color: var(--greyDark);
+    display: inline-block;
+    border-bottom: 1px solid var(--greyMedium);
+    font-size: 1.8rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+    transition: var(--defaultTransition);
+}
+
+/* ----------------------------------------------------------- */
+/* LAYOUT (HOMEPAGE) */
+
+#bio { grid-area: bio; }
+#cases { grid-area: cases; }
+#design { grid-area: design; }
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    "bio"
+    "cases" 
+    "design"
+}
+
+
+
+
+
+/* ******************************************************************************************************************
+ HEADER/HERO IMAGE (CONTENT/CASE STUDY PAGES)
+***************************************************************************************************************** */
+
+/* ----------------------------------------------------------- */
+/* navbar/hero-image (contentpage)*/
+.contentpage nav > a {
+    margin-left: 15vw;
+}
+
+.contentpage nav ul {
+    margin-right: 15vw;
+}
+
+.casepage header {
+    background-color: var(--blue);
+    background-image: url("../img/ROARlink_main.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 600px;
+}
+@media (max-width: 750px) {
+  .casepage header {
+    background-size: auto 400px; 
+    height: 450px;
+  }
+}
+
+@media (max-width: 450px) {
+  .casepage header {
+    background-size: auto 350px;
+    height: 400px;
+  }
+}
+
+/* ----------------------------------------------------------- */
+/* Overview section (contentpage)*/
+.casepage section {
+    padding: 80px 15vw;
+}
+
+.contentpage h1 {
+    font-size: 9rem;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.casepage h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 80px;
+}
+
+.casepage h3 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+}
+
+.overview-flex {
+    display: flex;
+}
+
+.specifications {
+    margin-left: 100px;
+    flex: 1;
+}
+
+@media (max-width: 750px) {
+    .overview-flex {
+        flex-direction: column;
+    }
+
+    .specifications {
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+
+}
+
+/* right column */
+
+.specifications h4 {
+    font-weight: 300;
+    margin: 25px 0 10px 0;
+}
+
+.specifications h4:nth-of-type(1) {
+    margin-top: 0;
+}
+
+.specifications p {
+    line-height: 1.5;
+}
+
+/* left column */
+.overview-text {
+    flex: 2
+}
+
+.overview-text p:nth-of-type(1){
+    margin-bottom: 50px;
+}
+
+/* ----------------------------------------------------------- */
+/* Problem section (contentpage)*/
+
+.problem {
+    background-color: var(--lightBlue);
+}
+
+
+
+
+/* ******************************************************************************************************************
+ HEADER (DESIGN PAGES)
+***************************************************************************************************************** */
+
+.designpage h1 {
+    margin: 50px 14vw -50px 14vw;
+    font-size: 15rem;
+}
+
+@media (max-width: 900px) {
+    .designpage h1 {
+        font-size: 10rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .designpage h1 {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .designpage h1 {
+        margin: 50px 4vw -50px 4vw;
+    }
+}
+
+.designpage header {
+    height: auto;
+    margin-bottom: 100px;
+}
+
+/* ----------------------------------------------------------- */
+/* Overview section (designpages)*/
+.designpage section {
+    margin: 0 15vw 100px 15vw;
+}
+
+@media (max-width: 450px) {
+    .designpage section {
+        margin: 0 5vw 100px 5vw;
+    }
+}
+
+/* ----------------------------------------------------------- */
+/* Art sections (designpages)*/
+.dSection {
+    padding: 50px 15vw;
+    display: flex;
+    gap: 100px;
+}
+
+@media (max-width: 900px) {
+    .dSection {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 450px) {
+    .dSection {
+        padding: 50px 5vw;
+    }
+}
+
+.dSection h2 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.dSection p:nth-of-type(1) {
+    font-size: 1.5rem;
+}
+
+.dSection img {
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    align-self: center;
+    margin: 0 auto 0 auto;
+}
+@media (max-width: 600px) {
+    .dSection img {
+        max-width: 100%;
+    }
+}
+
+.left {
+    flex-direction: row;
+    background-color: var(--lightBlue);
+}
+
+.right {
+    flex-direction: row-reverse;
+}
+
+.dSection > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.histoCard {
+    padding: 50px 15vw;
+    display: flex;
+    gap: 100px;
+    height: 100vh;
+    width: auto; 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--greyLight);
+}
+
+@media (max-width: 750px) {
+    .histoCard {
+        height: 75vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .histoCard {
+        height: 50vh;
+    }
+}
+
+.histoCardAlt {
+    background-color: var(--greyLighter);
+}
+
+.histoCard img {
+  width: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
