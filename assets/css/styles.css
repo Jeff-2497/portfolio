@@ -189,7 +189,7 @@ p {
     background-color: black;
     color: var(--white);
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
     border-radius: 200px;
 }
 
@@ -347,6 +347,32 @@ nav ul li:nth-of-type(2) a{
 #insta:hover svg {
   fill: var(--black);       
   transform: scale(1.1); 
+}
+
+#resumeB-wrapper {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right: 40px;
+}
+
+.resume-button {
+    display: block;
+    text-decoration: none;
+    border: 2px solid transparent;
+    color: var(--white);
+    background-color: var(--blue);
+    padding: 20px 50px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    border-radius: 50px;
+    transition: var(--defaultTransition);
+}
+
+.resume-button:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 2px solid var(--blue);
 }
 
 @media (max-width: 1250px) {
@@ -528,7 +554,7 @@ nav ul li:nth-of-type(2) a{
 
 @media (min-width: 1200px) {
     .cards-title {
-        font-size: 2.4rem;
+        font-size: 2.4rem !important;
         line-height: 3.5rem;
     }
 }
@@ -590,7 +616,7 @@ nav ul li:nth-of-type(2) a{
 
 .casepage header {
     background-color: var(--blue);
-    background-image: url("../img/ROARlink_main.png");
+    background-image: url("../img/1case_study/ROARlink_main.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -645,8 +671,9 @@ nav ul li:nth-of-type(2) a{
 }
 
 .casepage h3 {
-    font-size: 4.5rem;
+    font-size: 5.5rem;
     margin-bottom: 20px;
+    font-weight: 900;
 }
 @media (max-width: 600px) {
     .casepage h3 {
@@ -699,14 +726,318 @@ nav ul li:nth-of-type(2) a{
     margin-bottom: 50px;
 }
 
-/* ----------------------------------------------------------- */
-/* Problem section (contentpage)*/
-
-.problem {
+/* ------------------------------------------------------------------------- */
+/* GENERAL SECTION STLYING / Problem section (contentpage)*/
+/* ------------------------------------------------------------------------- */
+.alt-background {
     background-color: var(--lightBlue);
 }
 
+.h4-headers {
+    padding-bottom: 4%;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
 
+.p1-padding {
+    padding-top: 2%;
+}
+
+.content-gen-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 40px auto 0 auto;
+}
+
+.figma-button {
+    display: block;
+    text-decoration: none;
+    border: 2px solid transparent;
+    color: var(--white);
+    background-color: var(--blue);
+    padding: 15px;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    border-radius: 50px;
+    transition: var(--defaultTransition);
+}
+
+.figma-button:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 2px solid var(--blue);
+}
+
+.emphasize {
+    font-weight: bold !important;
+    color: var(--blue) !important;
+    font-size: 1.8rem !important;
+    transform: translateY(0) !important;
+}
+
+/* ----------------------------------------------------------- */
+/* Soultion section (contentpage)*/
+.solution img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 40px auto 0 auto;
+    margin: 40px auto 40px auto;
+}
+
+.sol-outer-flex {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+
+.sol-outer-flex span {
+    line-height: 1;
+    transform: translateY(-10%);
+    font-size: 18.5rem;
+    color: var(--lightBlue);
+    font-weight: 900;
+}
+
+.sol-outer-flex h4 {
+    font-size: 3.5rem;
+}
+
+@media (max-width: 400px) {
+    .sol-outer-flex {
+        flex-direction: column;
+    }
+}
+
+.sol-outer-flex ul {
+    margin-left: 10%;
+    margin-top: 2.5%;
+}
+
+.sol-outer-flex ul li::marker {
+    font-size: 2.5rem;
+}
+
+.sol-outer-flex li {
+    padding-bottom: 7.5px;
+    line-height: 1.5;
+}
+
+/* more specific */
+#sol-3 {
+    padding-right: 2%;
+}
+
+.sol2-spec > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sol2-spec div > div{
+    display: flex;
+    align-items: end;
+}
+
+.sol2-spec span {
+    transform: translateY(12.5%);
+}
+
+.sol2-spec h4 {
+    padding-left: 10px;
+}
+
+.sol2-spec ul {
+    padding-left: 12%;
+}
+
+@media (max-width: 850px) {
+    .sol2-spec {
+        flex-direction: column-reverse;
+    }
+}
+
+.sol3-spec {
+    margin-top: 40px;
+}
+
+.sol3-spec-img {
+    margin: 40px auto 0 auto;
+}
+
+/* ----------------------------------------------------------- */
+/* lit-review section (contentpage)*/
+.quote-style {
+    color: var(--blue); 
+    margin: 40px 80px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+@media (max-width: 650px) {
+    .quote-style {
+        margin: 30px 40px;
+    }
+}
+
+.quote-style cite {
+    display: block;
+    color: var(--blue);
+    margin-top: 5px;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 900;
+    text-align: right;
+}
+
+/* ----------------------------------------------------------- */
+/* comp-analysis section (contentpage)*/
+
+
+/* ----------------------------------------------------------- */
+/* user-interviews section (contentpage)*/
+.user-interviews h4:nth-of-type(2) {
+    font-size: 2rem;
+    margin-top: 4%;
+}
+
+.user-interviews ol {
+    margin-left: 5%;
+}
+
+.user-interviews li {
+    margin-top: 1.5%;
+}
+
+/* ----------------------------------------------------------- */
+/* main-insight section (contentpage)*/
+
+
+/* ----------------------------------------------------------- */
+/* persona section (contentpage)*/
+.persona-h4 {
+    padding-bottom: 2%;
+}
+
+/* ----------------------------------------------------------- */
+/* design section (contentpage)*/
+
+
+/* ----------------------------------------------------------- */
+/* testing/changes section (contentpage)*/
+.changes img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 80px auto;
+}
+
+.changes > div:nth-of-type(1) {
+    margin-top: 80px;
+}
+
+.changes span {
+    color: var(--white);
+    font-weight: 900;
+}
+
+.num-spacing {
+    padding-right: 1%;
+}
+
+#changes-img2 {
+    margin-top: 3%;
+}
+
+#changes-img3 {
+    margin-bottom: 0;
+    margin-top: 3.5%;
+}
+
+.changes p:nth-of-type(2) {
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+    .changes p:nth-of-type(2) {
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.5;
+    }
+}
+
+/* ----------------------------------------------------------- */
+/* final screens section (contentpage)*/
+
+
+/* ----------------------------------------------------------- */
+/* conclusion section (contentpage)*/
+.conclusion h4:not(:first-of-type) {
+    font-size: 3.5rem;
+    margin-top: 7.5%;
+}
+
+.conclusion span {
+    font-weight: bold;
+    color: var(--blue);
+    font-size: 2.5rem;
+}
+
+.conclusion ol, .conclusion ul {
+    margin-top: 2.5%;
+    margin-left: 7.5%;
+}
+
+.conclusion ul li::marker, .conclusion ol li::marker {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.conclusion li {
+    margin-bottom: 2%;
+    line-height: 1.5;
+}
+
+/* ----------------------------------------------------------- */
+/* final section (contentpage)*/
+
+.final h4 {
+    font-size: 3.5rem;
+    margin-bottom: 2.5%;
+}
+
+.final a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.final a:hover {
+    text-decoration: underline;
+}
+
+.final hr, .final h3 {
+    margin-top: 5%;
+}
+
+.final .cards {
+  padding: 0;
+}
+
+.final .cards-item {
+    margin: 0;
+}
+
+.final .cards-title {
+    font-size: 2rem;
+    font-weight: 300;
+}
 
 
 /* ******************************************************************************************************************
