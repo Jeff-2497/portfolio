@@ -70,7 +70,6 @@ footer {
     display: flex;
     background-color: var(--blue);
     height: 15vh;
-    margin-top: 80px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -620,7 +619,7 @@ nav ul li:nth-of-type(2) a{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100vw;
+    width: 100%;
     height: 600px;
 }
 @media (max-width: 750px) {
@@ -772,7 +771,7 @@ nav ul li:nth-of-type(2) a{
 
 .emphasize {
     font-weight: bold !important;
-    color: var(--blue) !important;
+    color: var(--blue);
     font-size: 1.8rem !important;
     transform: translateY(0) !important;
 }

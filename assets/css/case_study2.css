@@ -1,0 +1,89 @@
+:root {
+    --red: #c12530;
+    --lightRed: #ffd6d6;
+}
+
+.alt-background {
+    background-color: var(--lightRed);
+}
+
+.emphasize {
+    color: var(--red);
+}
+
+.casepage header {
+    background-color: var(--red);
+    background-image: url("../img/2case_study/hero_mockup.png");
+}
+
+.website-link {
+    color: var(--red);
+    text-decoration: none;
+}
+.website-link:hover {
+    text-decoration: underline;
+}
+
+#h3-solution {
+    margin-bottom: 10px;
+}
+.link-solution {
+    display: flex;
+    margin-bottom: 20px;
+}
+#arrow-solution {
+    display: inline;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+    margin-left: 7.5px;
+}
+
+.sol-outer-flex span {
+    color: var(--lightRed);
+}
+
+.figma-button {
+    background-color: var(--red);
+}
+
+.figma-button:hover {
+    color: var(--red);
+    border: 2px solid var(--red);
+}
+
+.quote-style {
+    color:var(--red);
+}
+.quote-style cite {
+    color: var(--red);
+}
+
+#buttonUp:hover {
+    background-color: var(--red);
+}
+
+.cursor-circle {
+    border: 2px solid var(--red);
+}
+
+ol > li > ul {
+    margin-left: 20px;
+}
+
+/* .cards-item {
+    background-color: var(--lightRed);
+} */
+
+footer {
+    background-color: var(--red);
+}
+
+.conclusion span {
+    color: var(--red);
+}
+
+.final a {
+    color: var(--red);
+}
