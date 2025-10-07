@@ -1,0 +1,78 @@
+:root {
+    --orange: #F76902;
+    --lightOrange: #ffc092;
+    --darkOrange: #cf5600;
+}
+
+.alt-background {
+    background-color: var(--lightOrange);
+}
+
+.emphasize {
+    color: var(--orange);
+}
+
+.casepage header {
+    background-color: var(--orange);
+}
+
+.sol-outer-flex span {
+    color: var(--lightOrange);
+}
+
+.figma-button {
+    background-color: var(--orange);
+}
+
+.figma-button:hover {
+    color: var(--orange);
+    border: 2px solid var(--orange);
+}
+
+.quote-style {
+    color:var(--orange);
+}
+.quote-style cite {
+    color: var(--orange);
+}
+
+#buttonUp:hover {
+    background-color: var(--orange);
+}
+
+.cursor-circle {
+    border: 2px solid var(--orange);
+}
+
+ol > li > ul {
+    margin-left: 20px;
+}
+
+/* .cards-item {
+    background-color: var(--lightRed);
+} */
+
+footer {
+    background-color: var(--orange);
+}
+
+.conclusion span {
+    color: var(--orange);
+}
+
+.final a {
+    color: var(--orange);
+}
+
+nav a:hover {
+  color: var(--orange);
+}
+
+.cards-item:hover, .cards-item:focus {
+  background: var(--darkOrange);
+  border-color: var(--darkOrange);
+}
+
+.cards-item {
+    border-top: 15px solid var(--darkOrange);
+}

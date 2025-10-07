@@ -1,6 +1,7 @@
 :root {
     --red: #c12530;
     --lightRed: #ffd6d6;
+    --darkRed: #871a22;
 }
 
 .alt-background {
@@ -86,4 +87,17 @@ footer {
 
 .final a {
     color: var(--red);
+}
+
+nav a:hover {
+  color: var(--red);
+}
+
+.cards-item:hover, .cards-item:focus {
+  background: var(--darkRed);
+  border-color: var(--darkRed);
+}
+
+.cards-item {
+    border-top: 15px solid var(--darkRed);
 }
