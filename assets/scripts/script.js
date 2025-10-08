@@ -87,3 +87,31 @@ window.addEventListener("scroll", () => {
 
   lastScrollY = currentScroll;
 });
+
+// Design work Slideshow 
+document.querySelectorAll('.slideshow').forEach(slideshow => {
+  const slides = slideshow.querySelectorAll('.slides img');
+  const dotsContainer = slideshow.querySelector('.dots');
+  
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dot.addEventListener('click', () => showSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+  
+  let currentIndex = 0;
+  const dots = dotsContainer.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides[currentIndex].classList.remove('active');
+    dots[currentIndex].classList.remove('active');
+    currentIndex = index;
+    slides[currentIndex].classList.add('active');
+    dots[currentIndex].classList.add('active');
+  }
+
+  // Initialize first slide
+  slides[0].classList.add('active');
+  dots[0].classList.add('active');
+});

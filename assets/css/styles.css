@@ -615,7 +615,7 @@ nav ul li:nth-of-type(2) a{
 
 .casepage header {
     background-color: var(--blue);
-    background-image: url("../img/1case_study/ROARlink_main.png");
+    background-image: url("../img/1case_study/ROARlink_main.webp");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -1027,6 +1027,7 @@ nav ul li:nth-of-type(2) a{
 
 .final .cards {
   padding: 0;
+  max-width: 50%;
 }
 
 .final .cards-item {
@@ -1142,6 +1143,44 @@ nav ul li:nth-of-type(2) a{
         margin-bottom: -50px;
     }
 }
+
+/* === Slideshow styling === */
+.slideshow {
+  position: relative;
+  max-width: 400px;
+  margin: auto;
+}
+
+.slides img {
+  display: none;
+}
+
+.slides img.active {
+  display: block;
+}
+
+/* Dot navigation */
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dots .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dots .dot.active {
+  background-color: var(--darkBlue, #333);
+}
+
+
 
 .histoCard {
     padding: 50px 15vw;
