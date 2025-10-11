@@ -1,0 +1,103 @@
+:root {
+    --green: #8FD027;
+    --lightGreen: #E1FFB0;
+    --darkGreen: #6A9B1C;
+}
+
+.alt-background {
+    background-color: var(--lightGreen);
+}
+
+.emphasize {
+    color: var(--green);
+}
+
+.casepage header {
+    background-color: var(--green);
+    background-image: url("../img/3case_study/yolickity_hero.webp");
+}
+
+.website-link {
+    color: var(--green);
+    text-decoration: none;
+}
+.website-link:hover {
+    text-decoration: underline;
+}
+
+#h3-solution {
+    margin-bottom: 10px;
+}
+.link-solution {
+    display: flex;
+    margin-bottom: 20px;
+}
+#arrow-solution {
+    display: inline;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+    margin-left: 7.5px;
+}
+
+.sol-outer-flex span {
+    color: var(--lightGreen);
+}
+
+.figma-button {
+    background-color: var(--green);
+}
+
+.figma-button:hover {
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
+.quote-style {
+    color:var(--green);
+}
+.quote-style cite {
+    color: var(--green);
+}
+
+#buttonUp:hover {
+    background-color: var(--green);
+}
+
+.cursor-circle {
+    border: 2px solid var(--green);
+}
+
+ol > li > ul {
+    margin-left: 20px;
+}
+
+/* .cards-item {
+    background-color: var(--lightGreen);
+} */
+
+footer {
+    background-color: var(--green);
+}
+
+.conclusion span {
+    color: var(--green);
+}
+
+.final a {
+    color: var(--green);
+}
+
+nav a:hover {
+  color: var(--green);
+}
+
+.cards-item:hover, .cards-item:focus {
+  background: var(--darkGreen);
+  border-color: var(--darkGreen);
+}
+
+.cards-item {
+    border-top: 15px solid var(--darkRed);
+}

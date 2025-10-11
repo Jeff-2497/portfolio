@@ -12,6 +12,11 @@
     --darkBlue: #325684;
     --blue: #63A5F5;
     --lightBlue: #d6e9ff;
+
+    --darkOrange: #cf5600;
+    --darkRed: #871a22;
+    --darkGreen: #6A9B1C;
+
     --defaultTransition: all 500ms ease-in-out;
 }
 
@@ -300,11 +305,11 @@ nav ul li:nth-of-type(2) a{
     margin-bottom: 60px;
 }
 
-#profile-img {
+.profile-img {
     max-width: 40%;
     height: auto;
     position: relative;
-    bottom: 40px;
+    bottom: 100px;
     padding: 0px 0px 50px 20px;
     flex: 40%;
 }
@@ -380,8 +385,7 @@ nav ul li:nth-of-type(2) a{
     }
 
     #synopsis{
-        padding-right: 20px;
-        padding-left: 20px;
+        max-width: 800px;
     }
 
     .flex-wrapper-bio div {
@@ -390,7 +394,8 @@ nav ul li:nth-of-type(2) a{
         padding: 0px 20px 20px 20px;
     }
 
-    #profile-img {
+    .profile-img {
+        bottom: 40px;
         width: 60%;
         height: auto;
         padding: 0px 0px 50px 0px;
@@ -401,6 +406,10 @@ nav ul li:nth-of-type(2) a{
     }
 
     #flex-icons {
+        margin-right: 0px;
+    }
+
+    #resumeB-wrapper {
         margin-right: 0px;
     }
 }
@@ -427,8 +436,6 @@ nav ul li:nth-of-type(2) a{
 .cards {
 	font-weight: 300;
 	background: var(--white);
-	color: var(--greyDark);
-	/*height: 100%;*/
     padding: 20px;
     max-width: 100%;
 }
@@ -452,15 +459,10 @@ nav ul li:nth-of-type(2) a{
     min-height: 100%;
     text-align: left;
     text-decoration: none;
-    border-top: 15px solid var(--darkBlue);
     padding: 30px;
     margin: 20px;
     transition: var(--defaultTransition);
     width: auto;
-    /* background-image: url('../img/pens_stuff2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
     background-color: rgba(255, 255, 255, 0.85); 
 }
 
@@ -486,10 +488,14 @@ nav ul li:nth-of-type(2) a{
 }
 
 /* 1st CARD HOVER COLORS */
+.cards-item {
+    border-top: 15px solid var(--darkOrange);
+}
+
 .cards-item:hover,
 .cards-item:focus {
-    background: var(--darkBlue);
-    border-color: var(--darkBlue);
+    background: var(--darkOrange);
+    border-color: var(--darkOrange);
     color: var(--white);
     outline: 0;
 }
@@ -512,25 +518,61 @@ nav ul li:nth-of-type(2) a{
 
 /* 2nd CARD COLORS + HOVER*/
 .cards-item:nth-of-type(2) {
-    border-top: 15px solid var(--greyMedium);
+    border-top: 15px solid var(--darkRed);
 }
 
 .cards-item:nth-of-type(2):hover,
 .cards-item:nth-of-type(2):focus {
-    background: var(--greyMedium);
-    border-color: var(--greyMedium);
+    background: var(--darkRed);
+    border-color: var(--darkRed);
 }
 
 /* 3rd CARD COLORS + HOVER*/
 .cards-item:nth-of-type(3) {
-    border-top: 15px solid var(--greyDark);
+    border-top: 15px solid var(--darkGreen);
 }
 
 .cards-item:nth-of-type(3):hover,
 .cards-item:nth-of-type(3):focus {
+    background: var(--darkGreen);
+    border-color: var(--darkGreen);
+}
+
+/* Design CARD COLORS + HOVER*/
+#design .cards-item {
+    border-top: 15px solid var(--darkBlue);
+}
+
+#design .cards-item:hover,
+#design .cards-item:focus {
+    background: var(--darkBlue);
+    border-color: var(--darkBlue);
+}
+
+/* Design 2nd CARD COLORS + HOVER*/
+#design .cards-item:nth-of-type(2) {
+    border-top: 15px solid var(--greyMedium);
+}
+
+#design .cards-item:nth-of-type(2):hover,
+#design .cards-item:nth-of-type(2):focus {
+    background: var(--greyMedium);
+    border-color: var(--greyMedium);
+}
+
+/* Design 3rd CARD COLORS + HOVER*/
+#design .cards-item:nth-of-type(3) {
+    border-top: 15px solid var(--greyDark);
+}
+
+#design .cards-item:nth-of-type(3):hover,
+#design .cards-item:nth-of-type(3):focus {
     background: var(--greyDark);
     border-color: var(--greyDark);
 }
+
+
+
 
 .cards-date {
     display: block;
@@ -1025,9 +1067,10 @@ nav ul li:nth-of-type(2) a{
     margin-top: 5%;
 }
 
+/* outer container size for the card elements*/
 .final .cards {
   padding: 0;
-  max-width: 50%;
+  /* max-width: 50%; */
 }
 
 .final .cards-item {
@@ -1159,6 +1202,42 @@ nav ul li:nth-of-type(2) a{
   display: block;
 }
 
+/* Arrow styling */
+.slideshow .prev,
+.slideshow .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  color: var(--black);
+  background-color: rgba(255,255,255,0.7);
+  padding: 6px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+  user-select: none;
+}
+
+.slideshow .prev:hover,
+.slideshow .next:hover {
+  background-color: rgba(255,255,255,1);
+}
+
+.slideshow .prev {
+  left: 10px;
+}
+
+.slideshow .next {
+  right: 10px;
+}
+
+/* Show arrows on hover */
+.slideshow:hover .prev,
+.slideshow:hover .next {
+  opacity: 1;
+}
+
 /* Dot navigation */
 .dots {
   text-align: center;
@@ -1182,7 +1261,7 @@ nav ul li:nth-of-type(2) a{
 
 
 
-.histoCard {
+/* .histoCard {
     padding: 50px 15vw;
     display: flex;
     gap: 100px;
@@ -1213,4 +1292,4 @@ nav ul li:nth-of-type(2) a{
   width: auto;
   max-height: 100%;
   object-fit: contain;
-}
+} */

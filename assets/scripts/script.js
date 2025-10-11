@@ -31,23 +31,6 @@ window.onscroll = function() {
   }
 }
 
-// navbar fade in and out when scroll gets to #main-target i.e. first section
-const nav = document.getElementById("nav");
-const mainTarget = document.getElementById("main-target");
-
-if (mainTarget) {
-  window.addEventListener("scroll", () => {
-    const targetPosition = mainTarget.getBoundingClientRect().top;
-
-    if (targetPosition <= 0) {
-      nav.classList.remove("hidden");
-    } else {
-      nav.classList.add("hidden");
-    }
-  }); 
-}
-
-
 // circle following cursor
 const circle = document.querySelector('.cursor-circle');
 let mouseX = 0;
@@ -67,39 +50,55 @@ function animate() {
   circle.style.top = `${circleY}px`;
   requestAnimationFrame(animate);
 }
-
 animate();
 
-// when scrolling up navabr appears otherwise its invisible
+
+
+// navbar fade in and out when scroll gets to #main-target i.e. first section
+// also sade in and out for other pages
 let lastScrollY = window.scrollY;
-const nav2 = document.querySelector("nav");
-let threshold = 10;
+const nav = document.querySelector("nav"); // Works on all pages
+const mainTarget = document.getElementById("main-target"); // May be null
+const threshold = 10;
 
 window.addEventListener("scroll", () => {
-  const currentScroll = window.scrollY;
-  if (!nav2) return;
+  if (!nav) return;
 
-  if (currentScroll - lastScrollY > threshold) {
-    nav2.classList.add("hidden");
-  } else if (lastScrollY - currentScroll > threshold) {
-    nav2.classList.remove("hidden");
+  const currentScroll = window.scrollY;
+
+  // Determine if we're past mainTarget (homepage only)
+  const pastTarget = mainTarget ? mainTarget.getBoundingClientRect().top <= 0 : true;
+
+  if (!pastTarget) {
+    // Before mainTarget → hide navbar
+    nav.classList.add("hidden");
+  } else {
+    // After mainTarget OR on other pages → use scroll direction logic
+    if (currentScroll - lastScrollY > threshold) {
+      nav.classList.add("hidden"); // scrolling down
+    } else if (lastScrollY - currentScroll > threshold) {
+      nav.classList.remove("hidden"); // scrolling up
+    }
   }
 
   lastScrollY = currentScroll;
 });
 
+
+
+
 // Design work Slideshow 
 document.querySelectorAll('.slideshow').forEach(slideshow => {
   const slides = slideshow.querySelectorAll('.slides img');
   const dotsContainer = slideshow.querySelector('.dots');
-  
+
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
     dot.classList.add('dot');
     dot.addEventListener('click', () => showSlide(i));
     dotsContainer.appendChild(dot);
   });
-  
+
   let currentIndex = 0;
   const dots = dotsContainer.querySelectorAll('.dot');
 
@@ -114,4 +113,20 @@ document.querySelectorAll('.slideshow').forEach(slideshow => {
   // Initialize first slide
   slides[0].classList.add('active');
   dots[0].classList.add('active');
+
+  // Arrow functionality
+  const prev = slideshow.querySelector('.prev');
+  const next = slideshow.querySelector('.next');
+
+  prev.addEventListener('click', () => {
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) newIndex = slides.length - 1;
+    showSlide(newIndex);
+  });
+
+  next.addEventListener('click', () => {
+    let newIndex = currentIndex + 1;
+    if (newIndex >= slides.length) newIndex = 0;
+    showSlide(newIndex);
+  });
 });
