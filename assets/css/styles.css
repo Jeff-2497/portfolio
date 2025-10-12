@@ -13,8 +13,19 @@
     --blue: #63A5F5;
     --lightBlue: #d6e9ff;
 
+    /* case study 1 */
+    --orange: #F76902;
+    --lightOrange: #ffc092;
     --darkOrange: #cf5600;
+
+    /* case study 2 */
+    --red: #c12530;
+    --lightRed: #ffd6d6;
     --darkRed: #871a22;
+
+    /* case study 3 */
+    --green: #8FD027;
+    --lightGreen: #E1FFB0;
     --darkGreen: #6A9B1C;
 
     --defaultTransition: all 500ms ease-in-out;

@@ -1,9 +1,3 @@
-:root {
-    --green: #8FD027;
-    --lightGreen: #E1FFB0;
-    --darkGreen: #6A9B1C;
-}
-
 .alt-background {
     background-color: var(--lightGreen);
 }
@@ -94,10 +88,21 @@ nav a:hover {
 }
 
 .cards-item:hover, .cards-item:focus {
-  background: var(--darkGreen);
-  border-color: var(--darkGreen);
+  background: var(--darkOrange);
+  border-color: var(--darkOrange);
 }
 
 .cards-item {
+    border-top: 15px solid var(--darkOrange);
+}
+
+/* 2nd CARD COLORS + HOVER*/
+.cards-item:nth-of-type(2) {
     border-top: 15px solid var(--darkRed);
+}
+
+.cards-item:nth-of-type(2):hover,
+.cards-item:nth-of-type(2):focus {
+    background: var(--darkRed);
+    border-color: var(--darkRed);
 }
