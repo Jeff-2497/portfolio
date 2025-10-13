@@ -167,9 +167,12 @@ p {
 }
 
 @media (max-width: 900px) {
+    .homepage h2 {
+        font-size: 10rem;
+    }
+
     .top h2 {
-        bottom: -21px;
-        font-size: 8rem;
+        bottom: -24.5px;
     }
 
     .bottom a {
@@ -177,17 +180,34 @@ p {
     }
 
     .bottom h2 {
-        top: -68px;
-        font-size: 8rem;
+        top: -71.75px;
     }
 
     .bottom img {
         width: 70%;
         height: auto;
         position: relative;
-        top: 140px;
-        /* 190 */
-        /*why does this look different depending if im in windowed vs inpection mode  */
+        top: 130px;
+    }
+}
+@media (max-width: 500px) {
+    .homepage h2 {
+        font-size: 7rem;
+    }
+
+    .top h2 {
+        bottom: -18px;
+    }
+
+    .bottom h2 {
+        top: -65.5px;
+    }
+
+    .bottom img {
+        width: 70%;
+        height: auto;
+        position: relative;
+        top: 165px;
     }
 }
 
@@ -426,10 +446,8 @@ nav ul li:nth-of-type(2) a{
 }
 
 @media (max-width: 900px) {
-    #profile-img {
-        width: 40%;
-        /* whats preventing the img from getting bigger than 40% */
-        height: auto;
+    .profile-img {
+        max-width: 80%;
     }
 
     #synopsis {
@@ -486,10 +504,6 @@ nav ul li:nth-of-type(2) a{
 @media (max-width: 900px) {
     .cards-item {
         height: 30%;
-    }
-
-    .homepage h2 {
-        font-size: 8rem;
     }
 }
 
