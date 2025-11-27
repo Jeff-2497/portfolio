@@ -33,16 +33,30 @@ window.onscroll = function() {
 
 // circle following cursor
 const circle = document.querySelector('.cursor-circle');
-let mouseX = 0;
-let mouseY = 0;
-let circleX = 0;
-let circleY = 0;
-const speed = 0.2; 
+let mouseX = 0, mouseY = 0;
+let circleX = 0, circleY = 0;
+const speed = 0.2;
 
-document.addEventListener('mousemove', (e) => {
+// detect when screen is tablet/mobile size
+const disableFollower = window.matchMedia("(max-width: 768px)");
+
+function updateFollowerStatus() {
+  if (disableFollower.matches) {
+    // disable
+    circle.style.display = "none";
+    document.removeEventListener("mousemove", handleMouseMove);
+  } else {
+    // enable
+    circle.style.display = "block";
+    document.addEventListener("mousemove", handleMouseMove);
+  }
+}
+
+function handleMouseMove(e) {
   mouseX = e.clientX;
   mouseY = e.clientY;
-});
+}
+
 function animate() {
   circleX += (mouseX - circleX) * speed;
   circleY += (mouseY - circleY) * speed;
@@ -50,6 +64,9 @@ function animate() {
   circle.style.top = `${circleY}px`;
   requestAnimationFrame(animate);
 }
+
+disableFollower.addEventListener("change", updateFollowerStatus);
+updateFollowerStatus(); // run on load
 animate();
 
 

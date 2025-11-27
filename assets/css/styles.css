@@ -192,22 +192,30 @@ p {
 }
 @media (max-width: 500px) {
     .homepage h2 {
-        font-size: 7rem;
+        font-size: 8rem;
     }
 
     .top h2 {
-        bottom: -18px;
+        bottom: -20px;
     }
 
     .bottom h2 {
-        top: -65.5px;
+        top: -67.75px;
     }
 
     .bottom img {
-        width: 70%;
-        height: auto;
-        position: relative;
-        top: 165px;
+        display: none;
+    }
+}
+@media (max-width: 400px) {
+    .homepage h2 {
+        font-size: 7rem;
+    }
+    .top h2 {
+        bottom: -18px;
+    }
+    .bottom h2 {
+        top: -65.5px;
     }
 }
 
